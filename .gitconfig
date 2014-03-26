@@ -4,7 +4,7 @@
 	c = !git add -A && git commit -m
 	rmc = !git reset --soft HEAD~1 && git reset HEAD
 	s = status -s
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit --decorate
+	l = !git --no-pager log --pretty=oneline -n 20 --graph --abbrev-commit --decorate
 	r = remote -v
 	b = branch -a
 	tags = tag -l
