@@ -19,3 +19,7 @@ alias rb="reboot"
 alias e="nano"
 
 alias rm="rm -rfI"
+
+alias gs="git s"
+alias gl="git l"
+alias gc="git c"
