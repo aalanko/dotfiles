@@ -9,6 +9,7 @@
 	b = branch -a
 	tags = tag -l
 	puo = pull origin
+	co = checkout
 
 [color]
 	ui = auto
