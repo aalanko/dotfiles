@@ -13,7 +13,7 @@ alias upg="apt-get upgrade"
 
 alias sudo="sudo "
 
-alias sb="shutdown -h 0"
+alias sd="shutdown -h 0"
 alias rb="reboot"
 
 alias e="nano"
@@ -26,3 +26,4 @@ alias gc="git c"
 alias gpo="git po"
 alias gpom="git pom"
 alias go="git co"
+alias gd="git d"

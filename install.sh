@@ -1,14 +1,8 @@
 #!/bin/sh
 
-cp -i .bash_aliases ~/.bash_aliases
-cp -i .bashrc ~/.bashrc
-cp -i .gitconfig ~/.gitconfig
+ln -s $(pwd)/.bash_aliases ~/.bash_aliases
+ln -s $(pwd)/.bashrc ~/.bashrc
+ln -s $(pwd)/.gitconfig ~/.gitconfig
+ln -s $(pwd)/.gitignore ~/.gitignore
 
-echo "Enter your name (.gitconfig):"
-read fullname
-echo "Enter your email (.gitconfig):"
-read email
-
-echo "[user]" >> ~/.gitconfig
-echo -e "\tname = $fullname" >> ~/.gitconfig
-echo -e "\temail = $email" >> ~/.gitconfig
+echo "Don't forget to edit your name and email in .gitconfig"

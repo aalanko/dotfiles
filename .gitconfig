@@ -10,6 +10,7 @@
 	tags = tag -l
 	puo = pull origin
 	co = checkout
+	d = diff --minimal
 
 [color]
 	ui = auto
@@ -26,5 +27,8 @@
 
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 
-
+[user]
+	name = Andreas Alanko
+	email = andreas@aalanko.com
