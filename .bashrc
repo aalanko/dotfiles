@@ -1,36 +1,11 @@
-HISTCONTROL=ignoreboth
-shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
-shopt -s checkwinsize
+HISTCONTROL=ignoreboth    # History storage
+HISTFILESIZE=2000         # History storage
+HISTSIZE=1000             # History storage
+shopt -s histappend       # Avoid overwriting history file
+shopt -s checkwinsize     # Wrap lines after resize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-#force_color_prompt=yes
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -42,3 +17,55 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+#### punch
+
+punch() {
+  mkdir -p $(dirname $1)
+  touch $1
+}
+
+alias touch="punch"
+export -f punch
+
+#### Aliases ####
+
+alias la="ls -la --color=auto"
+alias ls="ls -la --color=auto"
+alias l="ls --color=auto"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+
+alias sudo="sudo "
+
+alias e="nano"
+
+alias rm="rm -rfI"
+alias cp="cp -ai"
+alias mv="mv -i"
+alias mkdir="mkdir -p"
+
+## Git
+
+alias gs="git s"
+alias gl="git l"
+alias gc="git c"
+alias go="git co"
+alias gd="git d"
+
+## SSH Source
+
+sshs() {
+  ssh ${*:1} "cat > /tmp/.bashrc_temp" < ~/.bashrc
+  ssh -t ${*:1} "bash --rcfile /tmp/.bashrc_temp ; rm /tmp/.bashrc_temp"
+}
+
+export -f sshs
+
+## Colors
