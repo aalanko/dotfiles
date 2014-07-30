@@ -30,9 +30,9 @@ export -f punch
 
 #### Aliases ####
 
-alias la="ls -la --color=auto"
-alias ls="ls -la --color=auto"
-alias l="ls --color=auto"
+alias la="ls -lha --color=auto --group-directories-first"
+alias ls="ls -lha --color=auto --group-directories-first"
+alias l="ls --color=auto --group-directories-first"
 
 alias ..="cd .."
 alias ...="cd ../.."

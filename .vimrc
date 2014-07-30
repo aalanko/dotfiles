@@ -21,3 +21,6 @@ set incsearch
 
 " Highlight search
 set hlsearch
+
+" Disable backup files
+set nobackup
