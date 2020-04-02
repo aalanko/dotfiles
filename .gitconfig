@@ -1,23 +1,25 @@
 [alias]
-	pom = push origin master
-	po = push origin
 	c = !git add -A && git commit -m
 	rmc = !git reset --soft HEAD~1 && git reset HEAD
 	s = status -s
 	l = !git --no-pager log --pretty=oneline -n 20 --graph --abbrev-commit --decorate
 	r = remote -v
-	b = branch -a
+	b = branch -av
 	tags = tag -l
-	puo = pull origin
 	co = checkout
 	d = diff --minimal
+	fa = fetch -v --all
+	amend = commit --amend
+	la = !git config -l | grep alias | cut -c 7-
+	dt = diff HEAD~1..HEAD
+	save = !git add -A && git commit -m "WIP"
 
 [color]
 	ui = auto
 
 [color "status"]
-	added = green bold
-	changed = yellow bold
+	added = green
+	changed = yellow
 	untracked = red
 
 [color "branch"]
@@ -29,7 +31,11 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 	pager = less -r
+	fileMode = false
 
 [user]
 	name = Andreas Alanko
 	email = andreas@aalanko.com
+
+[merge]
+	tool = kdiff3
